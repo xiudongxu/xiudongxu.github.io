@@ -106,18 +106,18 @@
 
 
 
-  <meta name="description" content="一、Web前端性能优化  浏览器访问优化     减少http请求，主要是合并css，合并js，合并图片，浏览器一次访问的js，css合并成一个文件，多张图片合并成一张，如果每张图片有不通的超链接，可通过css偏移响应鼠标点击操作，构造不通的URL  使用浏览器缓存，通过设置http头中的Cache-Control 和 Expires 的属性，可以缓存js，css，logo，图标这种更新频率比较低">
+  <meta name="description" content="一、Web前端性能优化  浏览器访问优化     减少http请求，主要是合并css，合并js，合并图片，浏览器一次访问的js，css合并成一个文件，多张图片合并成一张，如果每张图片有不通的超链接，可通过css偏移响应鼠标点击操作，构造不通的URL 。">
 <meta name="keywords" content="性能优化">
 <meta property="og:type" content="article">
 <meta property="og:title" content="简单的性能优化总结">
 <meta property="og:url" content="http://xiudongxu.top/2018/05/21/简单的性能优化/index.html">
 <meta property="og:site_name" content="XiuDx`S BLOG。">
-<meta property="og:description" content="一、Web前端性能优化  浏览器访问优化     减少http请求，主要是合并css，合并js，合并图片，浏览器一次访问的js，css合并成一个文件，多张图片合并成一张，如果每张图片有不通的超链接，可通过css偏移响应鼠标点击操作，构造不通的URL  使用浏览器缓存，通过设置http头中的Cache-Control 和 Expires 的属性，可以缓存js，css，logo，图标这种更新频率比较低">
+<meta property="og:description" content="一、Web前端性能优化  浏览器访问优化     减少http请求，主要是合并css，合并js，合并图片，浏览器一次访问的js，css合并成一个文件，多张图片合并成一张，如果每张图片有不通的超链接，可通过css偏移响应鼠标点击操作，构造不通的URL 。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-05-21T13:12:59.133Z">
+<meta property="og:updated_time" content="2018-05-21T13:17:38.570Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="简单的性能优化总结">
-<meta name="twitter:description" content="一、Web前端性能优化  浏览器访问优化     减少http请求，主要是合并css，合并js，合并图片，浏览器一次访问的js，css合并成一个文件，多张图片合并成一张，如果每张图片有不通的超链接，可通过css偏移响应鼠标点击操作，构造不通的URL  使用浏览器缓存，通过设置http头中的Cache-Control 和 Expires 的属性，可以缓存js，css，logo，图标这种更新频率比较低">
+<meta name="twitter:description" content="一、Web前端性能优化  浏览器访问优化     减少http请求，主要是合并css，合并js，合并图片，浏览器一次访问的js，css合并成一个文件，多张图片合并成一张，如果每张图片有不通的超链接，可通过css偏移响应鼠标点击操作，构造不通的URL 。">
 
 
 
@@ -451,7 +451,7 @@
 <ol>
 <li><p>浏览器访问优化   </p>
 <ul>
-<li>减少http请求，主要是合并css，合并js，合并图片，浏览器一次访问的js，css合并成一个文件，多张图片合并成一张，如果每张图片有不通的超链接，可通过css偏移响应鼠标点击操作，构造不通的URL </li>
+<li>减少http请求，主要是合并css，合并js，合并图片，浏览器一次访问的js，css合并成一个文件，多张图片合并成一张，如果每张图片有不通的超链接，可通过css偏移响应鼠标点击操作，构造不通的URL 。<a id="more"></a> </li>
 <li>使用浏览器缓存，通过设置http头中的Cache-Control 和 Expires 的属性，可以缓存js，css，logo，图标这种更新频率比较低的静态资源，并设置缓存天数。如果静态资源文件变化需要及时的应用到客户端浏览器的时候可以通过改变文件名来实现，即更新一个文件而不是更新文件的内容。 </li>
 <li>启用压缩，在服务器端对文件压缩，在浏览器对文件进行解压缩。可以对html，css，js文件启用GZip压缩可达到较好的效果。 </li>
 <li>CSS放在页面的最上面，JS放在页面最下面。css直接渲染，js会执行，如果时间长会阻塞整个页面，造成缓慢。 </li>
