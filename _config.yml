@@ -83,7 +83,7 @@ theme: next
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: https://xiudongxu:xdx53210155@github.com/xiudongxu/xiudongxu.github.io.git
+  repo: https://xiudongxu:Xdx53210155@github.com/xiudongxu/xiudongxu.github.io.git
   branch: master
 #新增加的本地搜索插件
 search:
