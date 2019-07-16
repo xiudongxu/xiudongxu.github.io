@@ -106,23 +106,27 @@
 
 
 
-  <meta name="description" content="每一个不曾起舞的日子 都是对生命的辜负">
-<meta property="og:type" content="website">
-<meta property="og:title" content="XiuDx`S BLOG。">
-<meta property="og:url" content="http://xiudongxu.top/categories/架构相关/index.html">
+  <meta name="description" content="第一步  top free df 三连 第二步 保存线程栈现场  jstack pid &amp;gt; jstack.log  第三步 保存堆现场 注意 : 需要先把对外服务干掉才能dump jmap -dump:format=b,file=heap.log pid  第三步 重启服务 第四步 MAT工具分析 下载dump文件 记得压缩完了 再下载。  今天遇到的一个问题： 负载过高  配置2C4G">
+<meta name="keywords" content="线上问题">
+<meta property="og:type" content="article">
+<meta property="og:title" content="线上问题整理">
+<meta property="og:url" content="http://xiudongxu.top/2018/09/15/线上问题整理/index.html">
 <meta property="og:site_name" content="XiuDx`S BLOG。">
-<meta property="og:description" content="每一个不曾起舞的日子 都是对生命的辜负">
+<meta property="og:description" content="第一步  top free df 三连 第二步 保存线程栈现场  jstack pid &amp;gt; jstack.log  第三步 保存堆现场 注意 : 需要先把对外服务干掉才能dump jmap -dump:format=b,file=heap.log pid  第三步 重启服务 第四步 MAT工具分析 下载dump文件 记得压缩完了 再下载。  今天遇到的一个问题： 负载过高  配置2C4G">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://note.youdao.com/src/88A5BF74956E49A1AE97F855BE7081E3">
+<meta property="og:updated_time" content="2019-07-16T04:02:50.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="XiuDx`S BLOG。">
-<meta name="twitter:description" content="每一个不曾起舞的日子 都是对生命的辜负">
+<meta name="twitter:title" content="线上问题整理">
+<meta name="twitter:description" content="第一步  top free df 三连 第二步 保存线程栈现场  jstack pid &amp;gt; jstack.log  第三步 保存堆现场 注意 : 需要先把对外服务干掉才能dump jmap -dump:format=b,file=heap.log pid  第三步 重启服务 第四步 MAT工具分析 下载dump文件 记得压缩完了 再下载。  今天遇到的一个问题： 负载过高  配置2C4G">
+<meta name="twitter:image" content="http://note.youdao.com/src/88A5BF74956E49A1AE97F855BE7081E3">
 
 
 
 
 
 
-  <link rel="canonical" href="http://xiudongxu.top/categories/架构相关/"/>
+  <link rel="canonical" href="http://xiudongxu.top/2018/09/15/线上问题整理/"/>
 
 
 
@@ -132,7 +136,7 @@
   };
 </script>
 
-  <title>分类: 架构相关 | XiuDx`S BLOG。</title>
+  <title>线上问题整理 | XiuDx`S BLOG。</title>
   
 
 
@@ -179,7 +183,7 @@
     
   
 
-  <div class="container sidebar-position-right ">
+  <div class="container sidebar-position-right page-post-detail">
     <div class="headband"></div>
     <!-- <a href="https://github.com/xiudongxu"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_white_ffffff.png" alt="Fork me on GitHub">
     </a> -->
@@ -345,87 +349,276 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block category">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>架构相关<small>分类</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
+
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://xiudongxu.top/2018/09/15/线上问题整理/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="XiuDx">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="XiuDx`S BLOG。">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/09/15/线上问题整理/" itemprop="url">
-              
-                <span itemprop="name">线上问题整理</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">线上问题整理</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-09-15T20:19:20+08:00"
-              content="2018-09-15" >
-          09-15
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-15T20:19:20+08:00">2018-09-15</time>
+            
 
-    </header>
-  </article>
+            
+            
 
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/架构相关/" itemprop="url" rel="index"><span itemprop="name">架构相关</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-        
+      
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/05/21/简单的性能优化/" itemprop="url">
-              
-                <span itemprop="name">简单的性能优化总结</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-05-21T20:54:03+08:00"
-              content="2018-05-21" >
-          05-21
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+      
+        <p>第一步  top free df 三连</p>
+<p>第二步 保存线程栈现场</p>
+<p> jstack pid &gt; jstack.log </p>
+<p>第三步 保存堆现场</p>
+<p><strong>注意</strong> : 需要先把对外服务干掉才能dump</p>
+<p>jmap -dump:format=b,file=heap.log pid </p>
+<p>第三步 重启服务</p>
+<p>第四步 MAT工具分析</p>
+<p>下载dump文件 记得压缩完了 再下载。</p>
+<p><img src="//note.youdao.com/src/88A5BF74956E49A1AE97F855BE7081E3" alt="img"></p>
+<p>今天遇到的一个问题：</p>
+<p>负载过高  配置2C4G  使用sar -W 开启 swap  </p>
+<p>在swap期间  gc日志 是同步写入磁盘的  所以会导致整个机器hang住  GC时间长达30S</p>
+<p>结论：一定要关闭swap区</p>
+<p>如何通过gc.log 看问题 ？</p>
+<p>在GC日志里面有这么一行，我们需要重点关注一下：youngGc Time[user=0.01 sys=0.01 real=0.02]</p>
+<p>user代表 应用程序 处理的时间</p>
+<p>sys代表 除应用程序外  CPU一般切换 代表的时间</p>
+<p>real代表  一般是user和sys的和  如果 大于的话  那就 一般是IO打住了  或者swap区什么的</p>
+<ul>
+<li>vmstat 内存换入换出 </li>
+<li>netstat 网络活动</li>
+<li>iostat   在GC过程中会使GC时间变长</li>
+</ul>
+<p>一些工具记录汇总：</p>
+<p>jstat 是一个非常强大的 JVM 监控工具，一般用法是：</p>
+<p><code>jstat [-命令选项] [vmid] [间隔时间/毫秒</code>]  [查询次数]</p>
+<p>它支持的查看项有：</p>
+<ul>
+<li>-class 查看类加载信息</li>
+<li>-compile 编译统计信息</li>
+<li>-gc 垃圾回收信息</li>
+<li>-gcXXX 各区域 GC 的详细信息 如 -gcold</li>
+</ul>
+<p>使用它，对定位 JVM 的内存问题很有帮助。</p>
 
       
     </div>
 
+    
+
+    
+    
+    
+
+    
+      <div>
+        
+          
+
+        
+      </div>
+    
+
+    
+
+    
+
+    
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">
+            -------------本文结束
+            <i class="fa fa-paw"></i>
+            感谢您的阅读-------------
+        </div>
+    
+</div>
+
+      
+    </div>
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/线上问题/" rel="tag"><i class="fa fa-tag"></i> 线上问题</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/10/博客迁移/" rel="next" title="hexo博客迁移">
+                <i class="fa fa-chevron-left"></i> hexo博客迁移
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+        
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
 
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNjY3MS8xMzIwNg=="></div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -693,6 +886,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.0.6"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.0.6"></script>
+
+
 
   
 
@@ -717,6 +914,17 @@
 
 
 
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 
