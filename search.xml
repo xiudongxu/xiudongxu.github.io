@@ -1,6 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title></title>
+    <url>%2F2019%2F07%2F16%2F2%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[JAVA锁相关]]></title>
+    <url>%2F2018%2F11%2F21%2FJAVA%E9%94%81%E7%9B%B8%E5%85%B3%2F</url>
+    <content type="text"><![CDATA[synchronized使用及原理解析](https://www.cnblogs.com/little-sheep/p/9909111.html) 深入理解Java并发之synchronized实现原理 自己动手写把锁 Object.wait()/notify() https://www.jianshu.com/p/34b61d3cd227 无竞争情况下 使用偏向锁消除整个同步，减少同一个线程获取锁的代价。这个锁会一直偏向于第一个获得它的线程，如果接下该锁没有被其他线程获取，则持有偏向锁的线程将永远不需要再进行同步。 无锁相关： 一般都是用cas 来实现无锁 java ConcurrentLinkedQueue 就是无锁队列 并发队列分为 阻塞队列和非阻塞队列 阻塞队列有 ArrayBlockingQueue LinkedBlockingQueue PriorityBlockingQueue SynchronousQueue 等 非阻塞队列有 ConcurrentLinkedQueue]]></content>
+      <categories>
+        <category>java学习</category>
+      </categories>
+      <tags>
+        <tag>锁</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[数据库相关总结]]></title>
+    <url>%2F2018%2F11%2F15%2F%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9B%B8%E5%85%B3%E6%80%BB%E7%BB%93%2F</url>
+    <content type="text"><![CDATA[Innodb ](http://blog.itpub.net/7728585/viewspace-2146183/) 数据库的隔离级别以及悲观锁和乐观锁详解 Innodb中的事务隔离级别实现原理 mysql innodb如何在RR级别下防止幻读 mysql有一个autocommit参数，默认是on，他的作用是每一条单独的查询都是一个事务，并且自动开始，自动提交（执行完以后就自动结束了，如果你要适用select for update，而不手动调用 start transaction，这个for update的行锁机制等于没用，因为行锁在自动提交后就释放了），所以事务隔离级别和锁机制即使你不显式调用start transaction，这种机制在单独的一条查询语句中也是适用的，分析锁的运作的时候一定要注意这一点。 mysql 有一种发生死锁的情况 和 解决办法， 掘金上也有文章 挖坑的张师傅 如果用到了非主键索引，msyql会先锁定非主键索引，再锁定主键索引。 如果两条sql执行间隔时间非常短的话，会出现资源争夺的情况，可能死锁， 做update的话，（并发量高的情况？）先把update的数据先条件查询出来，再做主键id的更新]]></content>
+      <categories>
+        <category>DB-Mysql</category>
+      </categories>
+      <tags>
+        <tag>锁和隔离级别</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Netty源码解析]]></title>
+    <url>%2F2018%2F11%2F10%2FNetty%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90%2F</url>
+    <content type="text"><![CDATA[NIO相关](https://www.cnblogs.com/java-zhao/p/9195943.html) netty的高性能体现在哪里： 1.多路复用通信 2.异步IO 3.零拷贝 4.内存池 5.高效的Reactor线程模型 单线程，多线程，主从Reactor多线程模型 直接缓冲区是另外一种 ByteBuf 模式。我们期望用于对象创建的内存分配永远都来自于堆 中，但这并不是必须的——NIO 在 JDK 1.4 中引入的 ByteBuffer 类允许 JVM 实现通过本地调 用来分配内存。这主要是为了避免在每次调用本地 I/O 操作之前（或者之后）将缓冲区的内容复 制到一个中间缓冲区（或者从中间缓冲区把内容复制到缓冲区）。 ByteBuffer的Javadoc 明确指出：“直接缓冲区的内容将驻留在常规的会被垃圾回收的堆 之外。”这也就解释了为何直接缓冲区对于网络数据传输是理想的选择。如果你的数据包含在一 个在堆上分配的缓冲区中，那么事实上，在通过套接字发送它之前，JVM将会在内部把你的缓冲 区复制到一个直接缓冲区中。 直接缓冲区的主要缺点是，相对于基于堆的缓冲区，它们的分配和释放都较为昂贵。如果你 正在处理遗留代码，你也可能会遇到另外一个缺点：因为数据不是在堆上，所以你不得不进行一 次复制 慕课网Netty课程学习笔记 2-2 服务端监听端口 NioEventLoop 一个连接 ：io 编程模型是 socket，nio 编程模型是 channel 业务逻辑处理是由pipeline将各个处理业务的channelHandler串联起来的 2-3 netty组件介绍 NioEventLoop 对应 java 的Thread 本质上就是启动两种线程 它同时做两个事情 接收连接 处理业务。 run方法里面的select 就是server端接收连接的操作 和 client端拿到数据流的操作。 具体后面分析。 接收到连接后 调用 processSelectedKeys() 处理对应每一个连接 Channel 对应java的Socket 它对java socket的封装 processSelectedKeys 里面的 unsafe.read() 对应两个实现类 一个是 NioByteUnsafe 是client端的数据流读写。 NioMessageUnsafe 对应的是 server端接收连接的 -&gt; doReadMessage(readbuffer) -&gt;NioServerSocketChannel 里面能看到对应java底层的 socketChannel 就是 java 的 ServerSocketChannel 把这个封装成 netty 里面的 NioSocketChannel 最后基于 这个nsc 进行数据的读取的写入 ByteBuffer 对应数据的读写 Pipeline -&gt; Logic Chine 什么时候把pipeline 加入到每个channel 的处理过程的？ 在NioSocketChannel 的构造方法中可以找到答案。 每一个channle 都会有一个pipeline 然后把 逻辑链路 加到channel 里面 channel 每一次 对数据流的读写 都会经过pipeline ChannelHandler -&gt; Logic 逻辑处理块 ChannelHandler 是 加在 pipeline 里面的 3-2 netty 服务端启动 问题1：服务端的socket在哪里初始化。 问题2：在哪里accept连接。 总共分4步： 1.创建服务端channel 2.初始化服务端channel 3.注册selector 把jdk 的底层的channel注册到selector上 并把 NioServerSocketChannel attach 到 jdk的channel上 这样后续 selector 出事件之后 就能 拿到attachement 就能拿到 netty 封装的channel 4.端口绑定 调用 jdk 底层的绑定API 1.1 bind() [用户代码入口] ​ initAndRegister()[初始化并注册] ​ newChannel()[创建服务端channel] 创建服务端channel 就是调用 bootStrap.channel(NioServerSocketChannel); 这个类进行反射 也就是要看构造函数 反射创建服务端Channel（这里思考为什么要用反射？ 因为你要提供给别人去用 别人传的类可能不同 new 相当于提前写死了要创建的类 就不能动态加载了） new Socket[通过 jkd来创建底层jdk channel] NioServerSocketChannelConfig()[tcp参数配置类] AbstractNioChannel() ​ configureBlocking(false)[阻塞模式] ​ AbstractChannel()[创建id,unsafe,pipeline] 2.1 接着上面 1.1 的 newChannel 后面 init() 初始化服务端channel init()[初始化入口] 保存用户自定义的属性，创建一个连接接入器 就是把这些东西都给赋值上去 ​ set ChannleOptions,ChannelAttrs ​ set ChildOptions,ChildAttrs 【每次新创建一个连接 都会把这两个属性配置上去】 ​ config handler [配置服务端pipeline] ​ add ServerBootstrapAcceptor[特殊的处理器 把accept到的连接 分配一个Nio线程] 3.1 注册selector initAndRegister 调用到 config().group().register(channel); AbstractChannel register()[入口] ​ this.eventLoop = eventLoop[绑定线程] ​ register0()[实际注册] ​ doRegister()[调用jdk底层注册] ​ invokerHandlerAddedIfNeeded(); 触发回调 ​ fireChannelRegister()[传播事件:把注册成功传递到用户代码里面去] 4.1 AbstractUnsafe.bind()[入口] ​ doBind() ​ javaChannel().bind()[jdk底层绑定] ​ pipeline.fireChannelActive()[传播事件] ​ HeadContext.readIfIsAutoRead(); 将之前注册到select上的事件 重新绑定为一个 accept事件 4.1 NioEventLoop概述 问题三个： 1.默认情况下，Netty服务端起多少线程？何时启动？ 2.Netty 是如何解决jdk空轮训bug？ 3.Netty 是如何保证异步串行无锁化？ NioEventLoop创建、启动、执行逻辑。 4.2 NioEventLoop创建 -&gt; MultithreadEventExecutorGroup newNioEventLoopGroup[线程组，默认2*cpu] ​ new ThreadPerTaskExecutor()[线程创建器] ​ for(){newChild()}[构造NioEventLoop] ​ chooserFactory.newChooser()[线程选择器] 123public NioEventLoopGroup(int nThreads, Executor executor)&#123; this(nThreads, executor, SelectorProvider.provider());&#125; 4.3 ThreadPerTaskExecutor 线程执行器 每次执行任务都会创建一个线程实体 NioEventLoop线程命名规则nioEventLoop-1-xx -1 指的是第几个nioEventLoopGoup -xx 指的是第几个nioEventLoop 重点：netty 底层的thread 不是java 原生的thread 而是经过包装的FastTreadLocalThread(threadGroup , r , name); 4.4 创建NioEventLoop线程 newchild() 保存线程执行器ThreadPerTaskExecutor 创建一个MpscQueue 创建一个selector 一个selector 和 一个nioEventLoop 做绑定 来到 NioEventLoop 构造函数的父类构造函数 taskQueue = newTaskQueue return PlatformDependent.newMpscQueue(maxPendingTasks); new Mulity Producer Single Consumer Queue 4.5 chooserFactory.newChooser(); 创建chooser 给新连接绑定对应的EventLoop 对应的就是 MultithreadEventExecutorGroup 的 next 方法。 调用chooser.next(); 对应一个NioEventLoop[] 数组 从头开始绑定 一个连接对应一个 超出就从头再来。 创建chooser chooserFactory.newChooser(); isPowerOfTwo()[判断是否是2的幂 如 2、4、8、16] ​ PowerOfTwoEventExecutorChooser[优化] ​ index++ &amp;( length - 1 ) ​ GenericEventExecutorChooser[普通] ​ abs(index++ % length) 4.6 NioEventLoop 启动 bind() -&gt; execute(task)[入口] ​ startThread() -&gt; doStartThread()[创建线程] ​ ThreadPerTaskExecutor.execute() 每次执行任务都会创建一个线程 ​ thread = Thread.currentThread(); 将此线程进行保存 创建fastThreadLocalThread ​ NioEventLoop.run(); 启动 问题： channel 和 eventLoop 什么关系？ 进度：2019年04月17日08:53:06 视频4-6 4.7 NioEventLoop 执行 SingleThreadEventExecutor.this.run(); NioEventLoop.run(); ​ run() -&gt; for(;;) ​ select()[检查是否有io事件] ​ processSelectedKeys()[处理io事件] ​ runAllTasks()[处理异步任务队列] 一个nioEventLoop 对应一个selector 轮训注册到这个selector上的io事件 4.8 select()方法执行逻辑 deadline以及任务穿插逻辑处理 阻塞式select 避免jdk空轮训的bug 4.8.1 select wakenUp 标记这个select 是不是唤醒状态。 NioEventLoop 底层会有一个定时任务队列（后面会讲到） 如果超时的话 会直接执行一次 非阻塞的selector.selectNow() 如果没有到超时时间的话 阻塞1s进行一个select事件 并把计数++ 如果没有阻塞 就立即返回了 这样就是空轮训 空轮训次数 大于一个阈值 512 会rebuildSelector() 方法 把老的selctor的key 注册到新的 selector上去]]></content>
+      <categories>
+        <category>Netty</category>
+      </categories>
+      <tags>
+        <tag>源码解析</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[ES相关命令整理]]></title>
+    <url>%2F2018%2F10%2F09%2FES%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4%E6%95%B4%E7%90%86%2F</url>
+    <content type="text"><![CDATA[–查询出所有的索引 curl ‘10.32.64.16:9228/_cat/indices?v’ –查询对应索引的所有类型 curl ‘10.32.64.16:9228/mts_checkup_order/_search?q=*&amp;pretty’ –查询一个确定的文档 curl ‘10.32.64.16:9228/mts_checkup_order/orders/601049824311?pretty’ –查询映射 curl ‘10.32.64.16:9228/mts_checkup_order/_mapping’ –删除索引 curl -XDELETE ‘10.32.64.16:9228/mts_checkup_order?pretty’ –新建索引 curl -XPUT ‘10.32.64.16:9228/mts_checkup_order?pretty’ -H ‘Content-Type: application/json’ -d’{“settings”:{“number_of_shards”:1,”number_of_replicas”:1},”mappings”:{“orders”:{“dynamic_date_formats”:[“yyyy-MM-dd”,”yyyy-MM-dd HH:mm:ss”,”date_optional_time”],”dynamic_templates”:[{“strings_as_keywords”:{“match”:”*”,”match_mapping_type”:”string”,”mapping”:{“ignore_above”:255,”index”:”not_analyzed”,”type”:”keyword”,”norms”:false}}}]}}}’]]></content>
+      <categories>
+        <category>ES</category>
+      </categories>
+      <tags>
+        <tag>命令总结</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[线上问题整理]]></title>
     <url>%2F2018%2F09%2F15%2F%E7%BA%BF%E4%B8%8A%E9%97%AE%E9%A2%98%E6%95%B4%E7%90%86%2F</url>
     <content type="text"><![CDATA[线上问题排查步骤：第一步 top free df 三连 第二步 保存线程栈现场 jstack pid &gt; jstack.log 第三步 保存堆现场 注意 : 需要先把对外服务干掉才能dump jmap -dump:format=b,file=heap.log pid 第三步 重启服务 第四步 MAT工具分析 下载dump文件 记得压缩完了 再下载。 今天遇到的一个问题：负载过高 配置2C4G 使用sar -W 开启 swap 在swap期间 gc日志 是同步写入磁盘的 所以会导致整个机器hang住 GC时间长达30S 结论：一定要关闭swap区 如何通过gc.log 看问题 ？在GC日志里面有这么一行，我们需要重点关注一下：youngGc Time[user=0.01 sys=0.01 real=0.02] user代表 应用程序 处理的时间 sys代表 除应用程序外 CPU一般切换 代表的时间 real代表 一般是user和sys的和 如果 大于的话 那就 一般是IO打住了 或者swap区什么的 vmstat 内存换入换出 netstat 网络活动 iostat 在GC过程中会使GC时间变长 一些工具记录汇总：jstat 是一个非常强大的 JVM 监控工具，一般用法是： jstat [-命令选项] [vmid] [间隔时间/毫秒] [查询次数] 它支持的查看项有： -class 查看类加载信息 -compile 编译统计信息 -gc 垃圾回收信息 -gcXXX 各区域 GC 的详细信息 如 -gcold 使用它，对定位 JVM 的内存问题很有帮助。]]></content>
