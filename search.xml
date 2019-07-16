@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title></title>
-    <url>%2F2019%2F07%2F16%2F2%2F</url>
-    <content type="text"></content>
-  </entry>
-  <entry>
     <title><![CDATA[分布式锁]]></title>
     <url>%2F2019%2F03%2F22%2F%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81%2F</url>
     <content type="text"><![CDATA[redis 不适合用做分布式锁1 redis 不适合用作分布式锁2 浅谈负载均衡算法与实现 redission 封装的会自动续期 Redis实现分布式锁]]></content>
@@ -50,17 +45,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[zab协议]]></title>
-    <url>%2F2019%2F02%2F03%2Fzab%E5%8D%8F%E8%AE%AE%2F</url>
-    <content type="text"><![CDATA[zab协议 全称 zookeeper atomic brodcast 原子广播协议 zookeeper 通过此协议来保证分布式事务的最终一致性的 zab协议 Zab协议原理 zab协议要求每个Leader都要经历三个阶段：发现，同步，广播 发现：要求zookeeper集群必须选举出一个Leader进程，同时Leader会维护一个Follower可用客户端列表。 同步：Leader要负责将本身的数据与Follower完成同步，做到多副本存储。这样也是体现了CAP中的高可用和分区容错。 广播：Leader可以接受客户端新的事务Proposal请求，将新的Proposal请求广播给所有的Follower zab协议有两种模式：消息广播模式 和 崩溃恢复模式 消息广播： 只要有一台服务器提交了Proposal 就要确保所有的服务器最终都能正确提交Proposal 这也是CAP/BASE 实现最终一致性的一个体现。 Leader服务器与每一个Follower服务器之间都维护了一个单独的FIFO消息队列进行收发消息，使用队列消息可以做到异步解耦。Leader和Follower之间只需要往队列中发消息即可。 崩溃恢复：]]></content>
-      <categories>
-        <category>分布式一致性协议</category>
-      </categories>
-      <tags>
-        <tag>zab协议</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[python]]></title>
     <url>%2F2019%2F02%2F03%2Fpython%2F</url>
     <content type="text"><![CDATA[这个内容为了以后学习python留着 安装juypter遇到的问题 Error[01] operation 解决方案:pip install ipython –user -U 如何优雅的时候juypter 第一次使用juypter juypter的安装和使用 juypter document]]></content>
@@ -72,14 +56,14 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[go]]></title>
-    <url>%2F2019%2F02%2F03%2Fgo%2F</url>
-    <content type="text"><![CDATA[go语言踩坑 go语言分析 go语言基础]]></content>
+    <title><![CDATA[zab协议]]></title>
+    <url>%2F2019%2F02%2F03%2Fzab%E5%8D%8F%E8%AE%AE%2F</url>
+    <content type="text"><![CDATA[zab协议 全称 zookeeper atomic brodcast 原子广播协议 zookeeper 通过此协议来保证分布式事务的最终一致性的 zab协议 Zab协议原理 zab协议要求每个Leader都要经历三个阶段：发现，同步，广播 发现：要求zookeeper集群必须选举出一个Leader进程，同时Leader会维护一个Follower可用客户端列表。 同步：Leader要负责将本身的数据与Follower完成同步，做到多副本存储。这样也是体现了CAP中的高可用和分区容错。 广播：Leader可以接受客户端新的事务Proposal请求，将新的Proposal请求广播给所有的Follower zab协议有两种模式：消息广播模式 和 崩溃恢复模式 消息广播： 只要有一台服务器提交了Proposal 就要确保所有的服务器最终都能正确提交Proposal 这也是CAP/BASE 实现最终一致性的一个体现。 Leader服务器与每一个Follower服务器之间都维护了一个单独的FIFO消息队列进行收发消息，使用队列消息可以做到异步解耦。Leader和Follower之间只需要往队列中发消息即可。 崩溃恢复：]]></content>
       <categories>
-        <category>其他语言</category>
+        <category>分布式一致性协议</category>
       </categories>
       <tags>
-        <tag>go</tag>
+        <tag>zab协议</tag>
       </tags>
   </entry>
   <entry>
@@ -91,6 +75,17 @@
       </categories>
       <tags>
         <tag>tree</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[go]]></title>
+    <url>%2F2019%2F02%2F03%2Fgo%2F</url>
+    <content type="text"><![CDATA[go语言踩坑 go语言分析 go语言基础]]></content>
+      <categories>
+        <category>其他语言</category>
+      </categories>
+      <tags>
+        <tag>go</tag>
       </tags>
   </entry>
   <entry>
