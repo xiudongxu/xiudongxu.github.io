@@ -44,4 +44,15 @@
         <tag>个人记录</tag>
       </tags>
   </entry>
+  <entry>
+    <title><![CDATA[hexo博客迁移]]></title>
+    <url>%2F2018%2F03%2F31%2F2018-09-10-%E5%8D%9A%E5%AE%A2%E8%BF%81%E7%A7%BB%2F</url>
+    <content type="text"><![CDATA[已经过了好久了，之前的内容也都是一直整理在本地的文件夹中 或者 公司的WIKI上 或者 有道云上，看了同事总结的东西，还是决定重回这个blog上！ 第一个问题 如何迁移？原来这个hexo的内容都是在我家里的台式机上的，现在要迁移到我的工作笔记本上。 第一步 直接clone下载你的静态文件 注意：* 中间的内容要根据自己的内容进行替换git clone https://github.com/yourname/name*.github.io.git 第二步 删除所有东西 第三步 把之前维护的blog文件 全部搬到这边来 第四步 git add . 第五步 git commit -m “finish” 第六步 git push –set-upstream origin hexo 然后安装 hexo brew install node npm install -g hexo-cli 搞定！]]></content>
+      <categories>
+        <category>生活点滴</category>
+      </categories>
+      <tags>
+        <tag>个人记录</tag>
+      </tags>
+  </entry>
 </search>
