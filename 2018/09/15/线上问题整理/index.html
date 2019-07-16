@@ -106,18 +106,18 @@
 
 
 
-  <meta name="description" content="第一步  top free df 三连 第二步 保存线程栈现场  jstack pid &amp;gt; jstack.log  第三步 保存堆现场 注意 : 需要先把对外服务干掉才能dump jmap -dump:format=b,file=heap.log pid  第三步 重启服务 第四步 MAT工具分析 下载dump文件 记得压缩完了 再下载。 今天遇到的一个问题：负载过高  配置2C4G  使用">
+  <meta name="description" content="线上问题排查步骤：第一步  top free df 三连 第二步 保存线程栈现场  jstack pid &amp;gt; jstack.log  第三步 保存堆现场 注意 : 需要先把对外服务干掉才能dump jmap -dump:format=b,file=heap.log pid  第三步 重启服务 第四步 MAT工具分析 下载dump文件 记得压缩完了 再下载。 今天遇到的一个问题：负载过高  配">
 <meta name="keywords" content="线上问题">
 <meta property="og:type" content="article">
 <meta property="og:title" content="线上问题整理">
 <meta property="og:url" content="http://xiudongxu.top/2018/09/15/线上问题整理/index.html">
 <meta property="og:site_name" content="XiuDx`S BLOG。">
-<meta property="og:description" content="第一步  top free df 三连 第二步 保存线程栈现场  jstack pid &amp;gt; jstack.log  第三步 保存堆现场 注意 : 需要先把对外服务干掉才能dump jmap -dump:format=b,file=heap.log pid  第三步 重启服务 第四步 MAT工具分析 下载dump文件 记得压缩完了 再下载。 今天遇到的一个问题：负载过高  配置2C4G  使用">
+<meta property="og:description" content="线上问题排查步骤：第一步  top free df 三连 第二步 保存线程栈现场  jstack pid &amp;gt; jstack.log  第三步 保存堆现场 注意 : 需要先把对外服务干掉才能dump jmap -dump:format=b,file=heap.log pid  第三步 重启服务 第四步 MAT工具分析 下载dump文件 记得压缩完了 再下载。 今天遇到的一个问题：负载过高  配">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-16T05:10:24.000Z">
+<meta property="og:updated_time" content="2019-07-16T05:13:38.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="线上问题整理">
-<meta name="twitter:description" content="第一步  top free df 三连 第二步 保存线程栈现场  jstack pid &amp;gt; jstack.log  第三步 保存堆现场 注意 : 需要先把对外服务干掉才能dump jmap -dump:format=b,file=heap.log pid  第三步 重启服务 第四步 MAT工具分析 下载dump文件 记得压缩完了 再下载。 今天遇到的一个问题：负载过高  配置2C4G  使用">
+<meta name="twitter:description" content="线上问题排查步骤：第一步  top free df 三连 第二步 保存线程栈现场  jstack pid &amp;gt; jstack.log  第三步 保存堆现场 注意 : 需要先把对外服务干掉才能dump jmap -dump:format=b,file=heap.log pid  第三步 重启服务 第四步 MAT工具分析 下载dump文件 记得压缩完了 再下载。 今天遇到的一个问题：负载过高  配">
 
 
 
@@ -447,7 +447,7 @@
       
 
       
-        <p>第一步  top free df 三连</p>
+        <h3 id="线上问题排查步骤："><a href="#线上问题排查步骤：" class="headerlink" title="线上问题排查步骤："></a>线上问题排查步骤：</h3><p>第一步  top free df 三连</p>
 <p>第二步 保存线程栈现场</p>
 <p> jstack pid &gt; jstack.log </p>
 <p>第三步 保存堆现场</p>
@@ -756,7 +756,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#今天遇到的一个问题："><span class="nav-number">1.</span> <span class="nav-text">今天遇到的一个问题：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何通过gc-log-看问题-？"><span class="nav-number">2.</span> <span class="nav-text">如何通过gc.log 看问题 ？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一些工具记录汇总："><span class="nav-number">3.</span> <span class="nav-text">一些工具记录汇总：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#线上问题排查步骤："><span class="nav-number">1.</span> <span class="nav-text">线上问题排查步骤：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#今天遇到的一个问题："><span class="nav-number">2.</span> <span class="nav-text">今天遇到的一个问题：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何通过gc-log-看问题-？"><span class="nav-number">3.</span> <span class="nav-text">如何通过gc.log 看问题 ？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一些工具记录汇总："><span class="nav-number">4.</span> <span class="nav-text">一些工具记录汇总：</span></a></li></ol></div>
             
 
           </div>

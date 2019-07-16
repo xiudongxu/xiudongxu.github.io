@@ -450,14 +450,14 @@
       
         
           
-          第一步  top free df 三连
+          线上问题排查步骤：第一步  top free df 三连
 第二步 保存线程栈现场
  jstack pid &gt; jstack.log 
 第三步 保存堆现场
 注意 : 需要先把对外服务干掉才能dump
 jmap -dump:format=b,file=heap.log pid 
 第三步 重启服务
-第四步 MAT工具
+
           ...
           <!--noindex-->
           <div class="post-button text-center">

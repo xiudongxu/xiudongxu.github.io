@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[线上问题整理]]></title>
     <url>%2F2018%2F09%2F15%2F%E7%BA%BF%E4%B8%8A%E9%97%AE%E9%A2%98%E6%95%B4%E7%90%86%2F</url>
-    <content type="text"><![CDATA[第一步 top free df 三连 第二步 保存线程栈现场 jstack pid &gt; jstack.log 第三步 保存堆现场 注意 : 需要先把对外服务干掉才能dump jmap -dump:format=b,file=heap.log pid 第三步 重启服务 第四步 MAT工具分析 下载dump文件 记得压缩完了 再下载。 今天遇到的一个问题：负载过高 配置2C4G 使用sar -W 开启 swap 在swap期间 gc日志 是同步写入磁盘的 所以会导致整个机器hang住 GC时间长达30S 结论：一定要关闭swap区 如何通过gc.log 看问题 ？在GC日志里面有这么一行，我们需要重点关注一下：youngGc Time[user=0.01 sys=0.01 real=0.02] user代表 应用程序 处理的时间 sys代表 除应用程序外 CPU一般切换 代表的时间 real代表 一般是user和sys的和 如果 大于的话 那就 一般是IO打住了 或者swap区什么的 vmstat 内存换入换出 netstat 网络活动 iostat 在GC过程中会使GC时间变长 一些工具记录汇总：jstat 是一个非常强大的 JVM 监控工具，一般用法是： jstat [-命令选项] [vmid] [间隔时间/毫秒] [查询次数] 它支持的查看项有： -class 查看类加载信息 -compile 编译统计信息 -gc 垃圾回收信息 -gcXXX 各区域 GC 的详细信息 如 -gcold 使用它，对定位 JVM 的内存问题很有帮助。]]></content>
+    <content type="text"><![CDATA[线上问题排查步骤：第一步 top free df 三连 第二步 保存线程栈现场 jstack pid &gt; jstack.log 第三步 保存堆现场 注意 : 需要先把对外服务干掉才能dump jmap -dump:format=b,file=heap.log pid 第三步 重启服务 第四步 MAT工具分析 下载dump文件 记得压缩完了 再下载。 今天遇到的一个问题：负载过高 配置2C4G 使用sar -W 开启 swap 在swap期间 gc日志 是同步写入磁盘的 所以会导致整个机器hang住 GC时间长达30S 结论：一定要关闭swap区 如何通过gc.log 看问题 ？在GC日志里面有这么一行，我们需要重点关注一下：youngGc Time[user=0.01 sys=0.01 real=0.02] user代表 应用程序 处理的时间 sys代表 除应用程序外 CPU一般切换 代表的时间 real代表 一般是user和sys的和 如果 大于的话 那就 一般是IO打住了 或者swap区什么的 vmstat 内存换入换出 netstat 网络活动 iostat 在GC过程中会使GC时间变长 一些工具记录汇总：jstat 是一个非常强大的 JVM 监控工具，一般用法是： jstat [-命令选项] [vmid] [间隔时间/毫秒] [查询次数] 它支持的查看项有： -class 查看类加载信息 -compile 编译统计信息 -gc 垃圾回收信息 -gcXXX 各区域 GC 的详细信息 如 -gcold 使用它，对定位 JVM 的内存问题很有帮助。]]></content>
       <categories>
         <category>架构相关</category>
       </categories>
