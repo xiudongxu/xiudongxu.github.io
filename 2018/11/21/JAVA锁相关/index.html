@@ -106,18 +106,18 @@
 
 
 
-  <meta name="description" content="synchronized使用及原理解析](https://www.cnblogs.com/little-sheep/p/9909111.html)  深入理解Java并发之synchronized实现原理 自己动手写把锁 Object.wait()/notify() https://www.jianshu.com/p/34b61d3cd227 无竞争情况下  使用偏向锁消除整个同步，减少同一个线程">
+  <meta name="description" content="synchronized使用及原理解析)  深入理解Java并发之synchronized实现原理 自己动手写把锁 Object.wait()/notify() Synchronized原理分析 无竞争情况下  使用偏向锁消除整个同步，减少同一个线程获取锁的代价。这个锁会一直偏向于第一个获得它的线程，如果接下该锁没有被其他线程获取，则持有偏向锁的线程将永远不需要再进行同步。 无锁相关： 一般都是用">
 <meta name="keywords" content="锁">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JAVA锁相关">
 <meta property="og:url" content="http://xiudongxu.top/2018/11/21/JAVA锁相关/index.html">
 <meta property="og:site_name" content="XiuDx`S BLOG。">
-<meta property="og:description" content="synchronized使用及原理解析](https://www.cnblogs.com/little-sheep/p/9909111.html)  深入理解Java并发之synchronized实现原理 自己动手写把锁 Object.wait()/notify() https://www.jianshu.com/p/34b61d3cd227 无竞争情况下  使用偏向锁消除整个同步，减少同一个线程">
+<meta property="og:description" content="synchronized使用及原理解析)  深入理解Java并发之synchronized实现原理 自己动手写把锁 Object.wait()/notify() Synchronized原理分析 无竞争情况下  使用偏向锁消除整个同步，减少同一个线程获取锁的代价。这个锁会一直偏向于第一个获得它的线程，如果接下该锁没有被其他线程获取，则持有偏向锁的线程将永远不需要再进行同步。 无锁相关： 一般都是用">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-16T05:23:40.000Z">
+<meta property="og:updated_time" content="2019-07-16T05:55:13.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JAVA锁相关">
-<meta name="twitter:description" content="synchronized使用及原理解析](https://www.cnblogs.com/little-sheep/p/9909111.html)  深入理解Java并发之synchronized实现原理 自己动手写把锁 Object.wait()/notify() https://www.jianshu.com/p/34b61d3cd227 无竞争情况下  使用偏向锁消除整个同步，减少同一个线程">
+<meta name="twitter:description" content="synchronized使用及原理解析)  深入理解Java并发之synchronized实现原理 自己动手写把锁 Object.wait()/notify() Synchronized原理分析 无竞争情况下  使用偏向锁消除整个同步，减少同一个线程获取锁的代价。这个锁会一直偏向于第一个获得它的线程，如果接下该锁没有被其他线程获取，则持有偏向锁的线程将永远不需要再进行同步。 无锁相关： 一般都是用">
 
 
 
@@ -392,7 +392,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-21T11:32:40+08:00">2018-11-21</time>
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-21T11:30:40+08:00">2018-11-21</time>
             
 
             
@@ -447,16 +447,20 @@
       
 
       
-        <p>synchronized使用及原理解析](<a href="https://www.cnblogs.com/little-sheep/p/9909111.html" target="_blank" rel="noopener">https://www.cnblogs.com/little-sheep/p/9909111.html</a>)</p>
+        <p><a href="https://www.cnblogs.com/little-sheep/p/9909111.html" target="_blank" rel="noopener">synchronized使用及原理解析</a>)</p>
 <p><a href="https://blog.csdn.net/javazejian/article/details/72828483" target="_blank" rel="noopener"> 深入理解Java并发之synchronized实现原理</a></p>
 <p><a href="https://www.cnblogs.com/qingquanzi/p/8179042.html" target="_blank" rel="noopener">自己动手写把锁</a></p>
 <p><a href="https://www.jianshu.com/p/f4454164c017" target="_blank" rel="noopener">Object.wait()/notify()</a></p>
-<p><a href="https://www.jianshu.com/p/34b61d3cd227" target="_blank" rel="noopener">https://www.jianshu.com/p/34b61d3cd227</a></p>
+<p><a href="https://www.jianshu.com/p/34b61d3cd227" target="_blank" rel="noopener">Synchronized原理分析</a></p>
 <p>无竞争情况下  使用偏向锁消除整个同步，减少同一个线程获取锁的代价。这个锁会一直偏向于第一个获得它的线程，如果接下该锁没有被其他线程获取，则持有偏向锁的线程将永远不需要再进行同步。</p>
 <p>无锁相关：</p>
 <p>一般都是用cas 来实现无锁  java ConcurrentLinkedQueue 就是无锁队列</p>
 <p>并发队列分为 阻塞队列和非阻塞队列</p>
-<p>阻塞队列有  ArrayBlockingQueue  LinkedBlockingQueue  PriorityBlockingQueue  SynchronousQueue 等</p>
+<p>阻塞队列有  </p>
+<p>ArrayBlockingQueue  </p>
+<p>LinkedBlockingQueue  </p>
+<p>PriorityBlockingQueue  </p>
+<p>SynchronousQueue 等</p>
 <p>非阻塞队列有 <a href="http://www.importnew.com/25668.html" target="_blank" rel="noopener">ConcurrentLinkedQueue</a> </p>
 
       
@@ -523,8 +527,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/07/16/2/" rel="prev" title="">
-                 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/11/21/JAVA多线程相关/" rel="prev" title="JAVA多线程相关">
+                JAVA多线程相关 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -639,7 +643,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">11</span>
+                    <span class="site-state-item-count">25</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -666,7 +670,23 @@
                     
                       
                     
-                    <span class="site-state-item-count">7</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">15</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -697,7 +717,33 @@
                     
                       
                     
-                    <span class="site-state-item-count">9</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">22</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -780,7 +826,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共7.3k字</span>
+  <span class="post-count">博客全站共12.8k字</span>
 </div>
 <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 

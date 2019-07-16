@@ -106,18 +106,18 @@
 
 
 
-  <meta name="description" content="Innodb ](http://blog.itpub.net/7728585/viewspace-2146183/) 数据库的隔离级别以及悲观锁和乐观锁详解 Innodb中的事务隔离级别实现原理 mysql innodb如何在RR级别下防止幻读 mysql有一个autocommit参数，默认是on，他的作用是每一条单独的查询都是一个事务，并且自动开始，自动提交（执行完以后就自动结束了，如果你要适用">
+  <meta name="description" content="Innodb 数据库的隔离级别以及悲观锁和乐观锁详解 Innodb中的事务隔离级别实现原理 mysql innodb如何在RR级别下防止幻读 mysql有一个autocommit参数，默认是on，他的作用是每一条单独的查询都是一个事务，并且自动开始，自动提交（执行完以后就自动结束了，如果你要适用select for update，而不手动调用 start transaction，这个for upd">
 <meta name="keywords" content="锁和隔离级别">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数据库相关总结">
 <meta property="og:url" content="http://xiudongxu.top/2018/11/15/数据库相关总结/index.html">
 <meta property="og:site_name" content="XiuDx`S BLOG。">
-<meta property="og:description" content="Innodb ](http://blog.itpub.net/7728585/viewspace-2146183/) 数据库的隔离级别以及悲观锁和乐观锁详解 Innodb中的事务隔离级别实现原理 mysql innodb如何在RR级别下防止幻读 mysql有一个autocommit参数，默认是on，他的作用是每一条单独的查询都是一个事务，并且自动开始，自动提交（执行完以后就自动结束了，如果你要适用">
+<meta property="og:description" content="Innodb 数据库的隔离级别以及悲观锁和乐观锁详解 Innodb中的事务隔离级别实现原理 mysql innodb如何在RR级别下防止幻读 mysql有一个autocommit参数，默认是on，他的作用是每一条单独的查询都是一个事务，并且自动开始，自动提交（执行完以后就自动结束了，如果你要适用select for update，而不手动调用 start transaction，这个for upd">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-16T05:22:20.000Z">
+<meta property="og:updated_time" content="2019-07-16T05:39:29.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据库相关总结">
-<meta name="twitter:description" content="Innodb ](http://blog.itpub.net/7728585/viewspace-2146183/) 数据库的隔离级别以及悲观锁和乐观锁详解 Innodb中的事务隔离级别实现原理 mysql innodb如何在RR级别下防止幻读 mysql有一个autocommit参数，默认是on，他的作用是每一条单独的查询都是一个事务，并且自动开始，自动提交（执行完以后就自动结束了，如果你要适用">
+<meta name="twitter:description" content="Innodb 数据库的隔离级别以及悲观锁和乐观锁详解 Innodb中的事务隔离级别实现原理 mysql innodb如何在RR级别下防止幻读 mysql有一个autocommit参数，默认是on，他的作用是每一条单独的查询都是一个事务，并且自动开始，自动提交（执行完以后就自动结束了，如果你要适用select for update，而不手动调用 start transaction，这个for upd">
 
 
 
@@ -447,12 +447,12 @@
       
 
       
-        <p>Innodb ](<a href="http://blog.itpub.net/7728585/viewspace-2146183/" target="_blank" rel="noopener">http://blog.itpub.net/7728585/viewspace-2146183/</a>)</p>
+        <p><a href="http://blog.itpub.net/7728585/viewspace-2146183/" target="_blank" rel="noopener">Innodb</a></p>
 <p><a href="https://blog.csdn.net/xiaokang123456kao/article/details/75268240" target="_blank" rel="noopener">数据库的隔离级别以及悲观锁和乐观锁详解</a></p>
 <p><a href="https://www.cnblogs.com/Genesisx/p/9139175.html" target="_blank" rel="noopener">Innodb中的事务隔离级别实现原理</a></p>
 <p><a href="https://www.jianshu.com/p/2953c64761aa" target="_blank" rel="noopener">mysql innodb如何在RR级别下防止幻读</a></p>
 <p>mysql有一个autocommit参数，默认是on，他的作用是每一条单独的查询都是一个事务，并且自动开始，自动提交（执行完以后就自动结束了，如果你要适用select for update，而不手动调用 start transaction，这个for update的行锁机制等于没用，因为行锁在自动提交后就释放了），所以事务隔离级别和锁机制即使你不显式调用start transaction，这种机制在单独的一条查询语句中也是适用的，分析锁的运作的时候一定要注意这一点。</p>
-<p>mysql 有一种发生死锁的情况 和 解决办法， 掘金上也有文章  挖坑的张师傅</p>
+<h3 id="一个mysql死锁现象的发生"><a href="#一个mysql死锁现象的发生" class="headerlink" title="一个mysql死锁现象的发生"></a>一个mysql死锁现象的发生</h3><p>mysql 有一种发生死锁的情况 和 解决办法， 掘金上也有文章  挖坑的张师傅</p>
 <p>如果用到了非主键索引，msyql会先锁定非主键索引，再锁定主键索引。</p>
 <p>如果两条sql执行间隔时间非常短的话，会出现资源争夺的情况，可能死锁，</p>
 <p>做update的话，（并发量高的情况？）先把update的数据先条件查询出来，再做主键id的更新</p>
@@ -511,8 +511,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/11/10/Netty源码解析/" rel="next" title="Netty源码解析">
-                <i class="fa fa-chevron-left"></i> Netty源码解析
+              <a href="/2018/11/12/PolarDb比赛总结/" rel="next" title="PolarDb比赛总结">
+                <i class="fa fa-chevron-left"></i> PolarDb比赛总结
               </a>
             
           </div>
@@ -617,8 +617,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -637,7 +646,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">11</span>
+                    <span class="site-state-item-count">25</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -664,7 +673,23 @@
                     
                       
                     
-                    <span class="site-state-item-count">7</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">15</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -695,7 +720,33 @@
                     
                       
                     
-                    <span class="site-state-item-count">9</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">22</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -735,6 +786,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一个mysql死锁现象的发生"><span class="nav-number">1.</span> <span class="nav-text">一个mysql死锁现象的发生</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -778,7 +845,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共7.3k字</span>
+  <span class="post-count">博客全站共12.8k字</span>
 </div>
 <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 

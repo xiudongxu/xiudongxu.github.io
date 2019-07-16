@@ -106,18 +106,18 @@
 
 
 
-  <meta name="description" content="NIO相关](https://www.cnblogs.com/java-zhao/p/9195943.html) netty的高性能体现在哪里： 1.多路复用通信 2.异步IO 3.零拷贝 4.内存池 5.高效的Reactor线程模型  单线程，多线程，主从Reactor多线程模型 直接缓冲区是另外一种 ByteBuf 模式。我们期望用于对象创建的内存分配永远都来自于堆 中，但这并不是必须的——N">
-<meta name="keywords" content="源码解析">
+  <meta name="description" content="NIO相关 netty的高性能体现在哪里：  多路复用通信 异步IO 零拷贝 内存池 高效的Reactor线程模型  单线程，多线程，主从Reactor多线程模型  直接缓冲区是另外一种 ByteBuf 模式。我们期望用于对象创建的内存分配永远都来自于堆 中，但这并不是必须的——NIO 在 JDK 1.4 中引入的 ByteBuffer 类允许 JVM 实现通过本地调 用来分配内存。这主要是为了避">
+<meta name="keywords" content="Netty">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Netty源码解析">
 <meta property="og:url" content="http://xiudongxu.top/2018/11/10/Netty源码解析/index.html">
 <meta property="og:site_name" content="XiuDx`S BLOG。">
-<meta property="og:description" content="NIO相关](https://www.cnblogs.com/java-zhao/p/9195943.html) netty的高性能体现在哪里： 1.多路复用通信 2.异步IO 3.零拷贝 4.内存池 5.高效的Reactor线程模型  单线程，多线程，主从Reactor多线程模型 直接缓冲区是另外一种 ByteBuf 模式。我们期望用于对象创建的内存分配永远都来自于堆 中，但这并不是必须的——N">
+<meta property="og:description" content="NIO相关 netty的高性能体现在哪里：  多路复用通信 异步IO 零拷贝 内存池 高效的Reactor线程模型  单线程，多线程，主从Reactor多线程模型  直接缓冲区是另外一种 ByteBuf 模式。我们期望用于对象创建的内存分配永远都来自于堆 中，但这并不是必须的——NIO 在 JDK 1.4 中引入的 ByteBuffer 类允许 JVM 实现通过本地调 用来分配内存。这主要是为了避">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-16T05:21:18.000Z">
+<meta property="og:updated_time" content="2019-07-16T05:54:09.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Netty源码解析">
-<meta name="twitter:description" content="NIO相关](https://www.cnblogs.com/java-zhao/p/9195943.html) netty的高性能体现在哪里： 1.多路复用通信 2.异步IO 3.零拷贝 4.内存池 5.高效的Reactor线程模型  单线程，多线程，主从Reactor多线程模型 直接缓冲区是另外一种 ByteBuf 模式。我们期望用于对象创建的内存分配永远都来自于堆 中，但这并不是必须的——N">
+<meta name="twitter:description" content="NIO相关 netty的高性能体现在哪里：  多路复用通信 异步IO 零拷贝 内存池 高效的Reactor线程模型  单线程，多线程，主从Reactor多线程模型  直接缓冲区是另外一种 ByteBuf 模式。我们期望用于对象创建的内存分配永远都来自于堆 中，但这并不是必须的——NIO 在 JDK 1.4 中引入的 ByteBuffer 类允许 JVM 实现通过本地调 用来分配内存。这主要是为了避">
 
 
 
@@ -413,7 +413,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Netty/" itemprop="url" rel="index"><span itemprop="name">Netty</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/源码解析/" itemprop="url" rel="index"><span itemprop="name">源码解析</span></a></span>
 
                 
                 
@@ -447,13 +447,15 @@
       
 
       
-        <p>NIO相关](<a href="https://www.cnblogs.com/java-zhao/p/9195943.html" target="_blank" rel="noopener">https://www.cnblogs.com/java-zhao/p/9195943.html</a>)</p>
+        <p><a href="https://www.cnblogs.com/java-zhao/p/9195943.html" target="_blank" rel="noopener">NIO相关</a></p>
 <p>netty的高性能体现在哪里：</p>
-<p>1.多路复用通信</p>
-<p>2.异步IO</p>
-<p>3.零拷贝</p>
-<p>4.内存池</p>
-<p>5.高效的Reactor线程模型  单线程，多线程，主从Reactor多线程模型</p>
+<ul>
+<li>多路复用通信</li>
+<li>异步IO</li>
+<li>零拷贝</li>
+<li>内存池</li>
+<li>高效的Reactor线程模型  单线程，多线程，主从Reactor多线程模型</li>
+</ul>
 <p>直接缓冲区是另外一种 ByteBuf 模式。我们期望用于对象创建的内存分配永远都来自于堆 中，但这并不是必须的——NIO 在 JDK 1.4 中引入的 ByteBuffer 类允许 JVM 实现通过本地调 用来分配内存。这主要是为了避免在每次调用本地 I/O 操作之前（或者之后）将缓冲区的内容复 制到一个中间缓冲区（或者从中间缓冲区把内容复制到缓冲区）。</p>
 <p>ByteBuffer的Javadoc 明确指出：“直接缓冲区的内容将驻留在常规的会被垃圾回收的堆 之外。”这也就解释了为何直接缓冲区对于网络数据传输是理想的选择。如果你的数据包含在一 个在堆上分配的缓冲区中，那么事实上，在通过套接字发送它之前，JVM将会在内部把你的缓冲 区复制到一个直接缓冲区中。</p>
 <p>直接缓冲区的主要缺点是，相对于基于堆的缓冲区，它们的分配和释放都较为昂贵。如果你 正在处理遗留代码，你也可能会遇到另外一个缺点：因为数据不是在堆上，所以你不得不进行一 次复制</p>
@@ -619,7 +621,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/源码解析/" rel="tag"><i class="fa fa-tag"></i> 源码解析</a>
+            <a href="/tags/Netty/" rel="tag"><i class="fa fa-tag"></i> Netty</a>
           
         </div>
       
@@ -642,8 +644,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/11/15/数据库相关总结/" rel="prev" title="数据库相关总结">
-                数据库相关总结 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/11/12/PolarDb比赛总结/" rel="prev" title="PolarDb比赛总结">
+                PolarDb比赛总结 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -758,7 +760,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">11</span>
+                    <span class="site-state-item-count">25</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -785,7 +787,23 @@
                     
                       
                     
-                    <span class="site-state-item-count">7</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">15</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -816,7 +834,33 @@
                     
                       
                     
-                    <span class="site-state-item-count">9</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">22</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -899,7 +943,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共7.3k字</span>
+  <span class="post-count">博客全站共12.8k字</span>
 </div>
 <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
